@@ -33,6 +33,22 @@ subprojects {
 			exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 		}
 	}
+
+	repositories {
+		mavenCentral()
+	}
+
+
+	tasks.withType<Test> {
+		useJUnitPlatform()
+	}
+
+	tasks.withType<KotlinCompile> {
+		kotlinOptions {
+			freeCompilerArgs = listOf("-Xjsr305=strict")
+			jvmTarget = "1.11"
+		}
+	}
 }
 
 project("module-common") {
@@ -48,18 +64,15 @@ project("module-common") {
 	jar.enabled = true
 }
 
-repositories {
-	mavenCentral()
-}
+project("module-api") {
 
+	dependencies {
 
-tasks.withType<Test> {
-	useJUnitPlatform()
-}
+		implementation(project(":module-common"))
 
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		implementation("com.h2database:h2")
 	}
 }
+
+
