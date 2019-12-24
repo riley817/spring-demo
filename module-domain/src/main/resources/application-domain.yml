@@ -1,0 +1,54 @@
+---
+# Spring Setting
+spring:
+  profiles: default
+
+# JPA
+  jpa:
+    database: h2
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+      hibernate.show_sql: true
+      hibernate.hbm2ddl.auto: create
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: create
+      use-new-id-generator-mappings: true # 새 버전의 ID 옵션
+    show-sql: true # SQL 보기
+    database-platform: org.hibernate.dialect
+
+# datasource Setting
+datasource:
+  demo:
+    jdbc-url: jdbc:h2:tcp://localhost/~/h2db/springboot-demo
+    username: sa
+    password: qwer1234
+    driver-class-name: org.h2.Driver
+
+---
+# Spring Setting
+spring:
+  profiles: production
+
+  # JPA
+  jpa:
+    database: h2
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: create
+      use-new-id-generator-mappings: true # 새 버전의 ID 옵션
+    show-sql: true # SQL 보기
+    database-platform: org.hibernate.dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+# datasource Setting
+datasource:
+  demo:
+    jdbc-url: jdbc:h2:tcp://localhost/~/h2db/springboot-demo
+    username: sa
+    password: qwer1234
+    driver-class-name: org.h2.Driver

@@ -27,6 +27,12 @@ subprojects {
 
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter")
+		implementation("org.springframework.boot:spring-boot-starter-web")
+
+		// Lombok
+		annotationProcessor ("org.projectlombok:lombok:1.18.4")
+		implementation      ("org.projectlombok:lombok:1.18.4")
+
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 		testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -51,9 +57,10 @@ subprojects {
 	}
 }
 
-project("module-common") {
+project("module-domain") {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		implementation("pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0")
 		implementation("com.h2database:h2")
 	}
 
@@ -67,11 +74,7 @@ project("module-common") {
 project("module-api") {
 
 	dependencies {
-
-		implementation(project(":module-common"))
-
-		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-		implementation("com.h2database:h2")
+		implementation(project(":module-domain"))
 	}
 }
 

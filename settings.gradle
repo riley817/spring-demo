@@ -1,4 +1,4 @@
 rootProject.name = 'spring-demo'
-include 'module-common'
+include 'module-domain'
 include 'module-api'
 
