@@ -1,6 +1,6 @@
-package io.tlor.spring.common.model;
+package io.tlor.spring.domain.model;
 
-import io.tlor.spring.common.model.item.Item;
+import io.tlor.spring.domain.model.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 

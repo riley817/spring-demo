@@ -1,4 +1,4 @@
-package io.tlor.spring.common.model;
+package io.tlor.spring.domain.model;
 
 public enum OrderStatus {
     ORDER,

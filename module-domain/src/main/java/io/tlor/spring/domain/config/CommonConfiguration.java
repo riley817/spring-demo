@@ -1,11 +1,10 @@
-package io.tlor.spring.common.config;
+package io.tlor.spring.domain.config;
 
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = {"io.tlor.spring.common"})
+@ComponentScan(basePackages = {"io.tlor.spring.domain"})
 public class CommonConfiguration {
 
 }

@@ -1,6 +1,6 @@
-package io.tlor.spring.common.repository;
+package io.tlor.spring.domain.repository;
 
-import io.tlor.spring.common.model.Member;
+import io.tlor.spring.domain.model.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class MemberRepository {
+public class MemberRepository  {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -22,7 +22,8 @@ public class MemberRepository {
     }
 
     public List<Member> findAll() {
-        return entityManager.createQuery("SELECT m FROM Member m", Member.class).getResultList();
+        return entityManager.createQuery("SELECT m FROM Member m", Member.class)
+                .getResultList();
     }
 
     public List<Member> findByName(String name) {

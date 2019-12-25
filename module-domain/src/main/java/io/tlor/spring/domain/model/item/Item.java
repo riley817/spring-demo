@@ -1,7 +1,6 @@
-package io.tlor.spring.common.model.item;
+package io.tlor.spring.domain.model.item;
 
-import io.tlor.spring.common.exception.NotEnoughStockException;
-import io.tlor.spring.common.model.Category;
+import io.tlor.spring.domain.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,4 @@
-package io.tlor.spring.common.config;
+package io.tlor.spring.domain.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

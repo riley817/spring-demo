@@ -1,4 +1,4 @@
-package io.tlor.spring.common.model.item;
+package io.tlor.spring.domain.model.item;
 
 import lombok.Getter;
 import lombok.Setter;

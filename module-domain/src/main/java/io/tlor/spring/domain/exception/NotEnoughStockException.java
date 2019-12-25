@@ -1,4 +1,4 @@
-package io.tlor.spring.common.exception;
+package io.tlor.spring.domain.exception;
 
 public class NotEnoughStockException extends RuntimeException {
 
