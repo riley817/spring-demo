@@ -32,7 +32,7 @@ public class DataBaseConfig {
     public LocalContainerEntityManagerFactoryBean demoEntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(demoDataSource());
-        em.setPackagesToScan(new String[] { "io.tlor.spring.common.model" });
+        em.setPackagesToScan(new String[] { "io.tlor.spring.domain.model" });
         em.setPersistenceUnitName("demoPersistenceUnit");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -57,6 +57,7 @@ public class DataBaseConfig {
         properties.setProperty("hibernate.use_sql_comments", "true");                   // SQL 코멘트 보기
         properties.setProperty("hibernate.id.new_generator_mappings", "true");          // 새 버전의 ID 생성 옵션
         properties.setProperty("hibernate.hbm2ddl.auto", "create");                     // DDL 자동 생성 옵션
+        properties.setProperty("hibernate.physical_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
         return properties;
     }
 }

@@ -1,4 +1,4 @@
-package io.tlor.spring.domain.repository;
+package io.tlor.spring.api.repository;
 
 import io.tlor.spring.domain.model.Member;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import java.util.List;
 public class MemberRepository  {
 
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
 
     public void save(Member member) {
         entityManager.persist(member);
@@ -27,7 +27,7 @@ public class MemberRepository  {
     }
 
     public List<Member> findByName(String name) {
-        return entityManager.createQuery("SELECT m FROM Member m WHERE m.name = :name", Member.class)
+        return entityManager.createQuery(" SELECT m FROM io.tlor.spring.domain.model.Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
     }

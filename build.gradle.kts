@@ -26,8 +26,9 @@ subprojects {
 	java.sourceCompatibility = JavaVersion.VERSION_11
 
 	dependencies {
+
 		implementation("org.springframework.boot:spring-boot-starter")
-		implementation("org.springframework.boot:spring-boot-starter-web")
+		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
 		// Lombok
 		annotationProcessor ("org.projectlombok:lombok:1.18.4")
@@ -59,8 +60,6 @@ subprojects {
 
 project("module-domain") {
 	dependencies {
-		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-		implementation("pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0")
 		implementation("com.h2database:h2")
 	}
 
@@ -75,6 +74,7 @@ project("module-api") {
 
 	dependencies {
 		implementation(project(":module-domain"))
+		implementation("org.springframework.boot:spring-boot-starter-web")
 	}
 }
 
