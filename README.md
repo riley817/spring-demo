@@ -19,7 +19,7 @@
 + Redis Pub/Sub (정리중)
 ```
 
-# 구성  
+## 구성  
 ```
 spring-demo
 └─ module-domain : DB 설정, Entity, 공통 Util을 정의.
