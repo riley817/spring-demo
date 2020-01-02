@@ -1,18 +1,13 @@
 package io.tlor.spring.domain.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "DELIVERY")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Delivery {
 
     @Id @GeneratedValue
@@ -27,6 +22,15 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status; // ENUM [READY(준비), COMP(배송)]
+
+    public Delivery() {
+
+    }
+
+    public Delivery(Address address) {
+        this.address = address;
+        this.status = DeliveryStatus.READY;
+    }
 
     @Override
     public String toString() {

@@ -1,0 +1,22 @@
+# Common
+spring:
+  profiles:
+    include:
+      - domain
+      - api
+    active: default
+---
+spring:
+  profiles: default
+
+# Embedded server Setting
+server:
+  port: 9091
+
+---
+spring:
+  profiles: production
+
+# Embedded server Setting
+server:
+  port: 9091

@@ -36,9 +36,12 @@ subprojects {
 
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-		testImplementation("org.springframework.boot:spring-boot-starter-test") {
+
+		testImplementation("org.springframework.boot:spring-boot-starter-test")
+		/*testImplementation("org.springframework.boot:spring-boot-starter-test") {
 			exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-		}
+		}*/
+
 	}
 
 	repositories {
@@ -77,5 +80,15 @@ project("module-api") {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 	}
 }
+
+project("client-web") {
+
+	dependencies {
+		implementation(project(":module-domain"))
+		implementation(project(":module-api"))
+		implementation("pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0")
+	}
+}
+
 
 
