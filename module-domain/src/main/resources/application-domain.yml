@@ -25,6 +25,11 @@ datasource:
     username: sa
     password: qwer1234
     driver-class-name: org.h2.Driver
+  oauth:
+    jdbc-url: jdbc:h2:tcp://localhost/~/h2db/oauth
+    username: sa
+    password: qwer1234
+    driver-class-name: org.h2.Driver
 
 ---
 # Spring Setting
@@ -49,6 +54,11 @@ spring:
 datasource:
   demo:
     jdbc-url: jdbc:h2:tcp://localhost/~/h2db/springboot-demo
+    username: sa
+    password: qwer1234
+    driver-class-name: org.h2.Driver
+  oauth:
+    jdbc-url: jdbc:h2:tcp://localhost/~/h2db/oauth
     username: sa
     password: qwer1234
     driver-class-name: org.h2.Driver

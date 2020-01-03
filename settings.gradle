@@ -2,4 +2,5 @@ rootProject.name = 'spring-demo'
 include 'module-domain'
 include 'module-api'
 include 'client-web'
+include 'oauth'
 

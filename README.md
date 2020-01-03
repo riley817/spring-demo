@@ -5,7 +5,7 @@
 
 + 전체적인 구성 참고 : https://github.com/ihoneymon/bootiful-your-life
 + JPA/Hiberante 소스 참고 : https://github.com/holyeye/jpabook 
-
++ OAuth 참고 : https://brunch.co.kr/@sbcoba/1
 ```
 + Springboot 2.x
 + Gradle 6.x
@@ -28,4 +28,11 @@ spring-demo
 └─ module-redis  : 정리중...
 └─ module-amqp   : 정리중...
 ```
+
+## oauth-server
+
+### 
+- TokenStore
++ https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql
+
 

@@ -1,0 +1,21 @@
+# Common
+spring:
+  profiles:
+    include:
+      - domain
+    active: default
+---
+spring:
+  profiles: default
+
+# Embedded server Setting
+server:
+  port: 9093
+
+---
+spring:
+  profiles: production
+
+# Embedded server Setting
+server:
+  port: 9093
