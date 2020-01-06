@@ -1,6 +1,5 @@
 package io.tlor.spring.oauth.repository;
 
-import io.tlor.spring.domain.model.oauth.OauthClientDetails;
 import io.tlor.spring.oauth.vo.PlatformClient;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
@@ -38,20 +37,12 @@ public class OAuthClientDetailsRepository {
                     (String) client[4],
                     (String) client[5],
                     (String) client[6],
-                    (String) client[7],
-                    (String) client[8],
+                    (Integer) client[7],
+                    (Integer) client[8],
                     (String) client[9],
                     (String) client[10]
             )).collect(Collectors.toList()).get(0);
         }
-
-        q.getFirstResult();
-
-
-        return null;
+        return platformClient;
     }
-
-
-
-
 }

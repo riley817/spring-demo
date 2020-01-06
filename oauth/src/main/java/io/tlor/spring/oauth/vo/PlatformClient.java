@@ -11,9 +11,9 @@ import java.util.*;
 public class PlatformClient implements ClientDetails {
 
     private String clientId;
-    private String resourceIds;
+    private Set<String> resourceIds;
     private String clientSecret;
-    private String scope;
+    private Set<String> scope;
     private String authorizedGrantTypes;
     private String registeredRedirectUri;
     private Integer accessTokenValiditySeconds;
@@ -21,44 +21,21 @@ public class PlatformClient implements ClientDetails {
     private String authorities;
     private Map<String, Object> additionalInformation;
 
-    public void setClientSecret(String clientSecret) {
-        this.clientSecret = clientSecret;
-    }
+    public PlatformClient(String clientId, String resourceIds, String clientSecret, String scope,
+                          String authorizedGrantTypes, String registeredRedirectUri,
+                          Integer accessTokenValiditySeconds, Integer refreshTokenValiditySeconds,
+                          String authorities, String additionalInformation) {
 
-    public void setScope(String scope) {
-        this.scope = scope;
-    }
-
-    public void setAuthorizedGrantTypes(String authorizedGrantTypes) {
-        this.authorizedGrantTypes = authorizedGrantTypes;
-    }
-
-    public void setRegisteredRedirectUri(String registeredRedirectUri) {
-        this.registeredRedirectUri = registeredRedirectUri;
-    }
-
-    public void setAccessTokenValiditySeconds(Integer accessTokenValiditySeconds) {
-        this.accessTokenValiditySeconds = accessTokenValiditySeconds;
-    }
-
-    public void setRefreshTokenValiditySeconds(Integer refreshTokenValiditySeconds) {
-        this.refreshTokenValiditySeconds = refreshTokenValiditySeconds;
-    }
-
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
-
-    public void setAdditionalInformation(Map<String, Object> additionalInformation) {
-        this.additionalInformation = additionalInformation;
-    }
-
-    public void setClientId(String clientId) {
         this.clientId = clientId;
-    }
-
-    public void setResourceIds(String resourceIds) {
-        this.resourceIds = resourceIds;
+        this.resourceIds = _tokenizeStringAttribute(resourceIds);
+        this.clientSecret = clientSecret;
+        this.scope = _tokenizeStringAttribute(scope);
+        this.authorizedGrantTypes = authorizedGrantTypes;
+        this.registeredRedirectUri = registeredRedirectUri;
+        this.accessTokenValiditySeconds = accessTokenValiditySeconds;
+        this.refreshTokenValiditySeconds = refreshTokenValiditySeconds;
+        this.authorities = authorities;
+        //this.additionalInformation = _tokenizeAuthority(additionalInformation);
     }
 
     @Override
@@ -68,13 +45,7 @@ public class PlatformClient implements ClientDetails {
 
     @Override
     public Set<String> getResourceIds() {
-        if (this.resourceIds == null) return null;
-        Set<String> result = new HashSet<>();
-        StringTokenizer st = new StringTokenizer(this.resourceIds, ",");
-        while(st.hasMoreElements()) {
-            result.add(st.nextToken());
-        }
-        return result;
+        return this.resourceIds;
     }
 
     @Override
@@ -94,12 +65,7 @@ public class PlatformClient implements ClientDetails {
 
     @Override
     public Set<String> getScope() {
-        Set<String> result = new HashSet<>();
-        StringTokenizer st = new StringTokenizer(this.scope, ",");
-        while(st.hasMoreElements()) {
-            result.add(st.nextToken());
-        }
-        return result;
+        return this.scope;
     }
 
     @Override
@@ -166,5 +132,14 @@ public class PlatformClient implements ClientDetails {
                 ", authorities='" + authorities + '\'' +
                 ", additionalInformation=" + additionalInformation +
                 '}';
+    }
+
+    private Set<String> _tokenizeStringAttribute(String tokenStr) {
+        Set<String> result = new HashSet<>();
+        StringTokenizer st = new StringTokenizer(tokenStr, ",");
+        while(st.hasMoreElements()) {
+            result.add(st.nextToken());
+        }
+        return result;
     }
 }

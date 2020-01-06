@@ -95,6 +95,7 @@ project("oauth") {
 
 	dependencies {
 		implementation(project(":module-domain"))
+		implementation("org.springframework.boot:spring-boot-starter-web")
 		//implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
 		// OAuth2 라이브러리 관련
