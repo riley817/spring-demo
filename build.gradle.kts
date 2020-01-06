@@ -78,6 +78,11 @@ project("module-api") {
 	dependencies {
 		implementation(project(":module-domain"))
 		implementation("org.springframework.boot:spring-boot-starter-web")
+
+		// OAuth2 라이브러리 관련
+		implementation ("org.springframework.boot:spring-boot-starter-security:2.1.1.RELEASE")
+		implementation ("org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE")
+		implementation ("org.springframework.security:spring-security-jwt:1.0.9.RELEASE")
 	}
 }
 
@@ -94,14 +99,12 @@ project("client-web") {
 project("oauth") {
 
 	dependencies {
+
 		implementation(project(":module-domain"))
 		implementation("org.springframework.boot:spring-boot-starter-web")
-		//implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
 		// OAuth2 라이브러리 관련
-		implementation ("org.springframework.boot:spring-boot-starter-security")
-		implementation ("org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE")
-		implementation ("org.springframework.security:spring-security-jwt:1.0.9.RELEASE")
+		implementation ("org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE")
 
 	}
 }

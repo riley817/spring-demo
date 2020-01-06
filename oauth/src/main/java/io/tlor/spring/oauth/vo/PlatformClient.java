@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.util.StringUtils;
 
 import java.util.*;
 
@@ -90,12 +91,14 @@ public class PlatformClient implements ClientDetails {
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
+
+
+        /*List<GrantedAuthority> authorities = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(this.authorities, ",");
         while(st.hasMoreElements()) {
             authorities.add(new SimpleGrantedAuthority(st.nextToken()));
-        }
-        return authorities;
+        }*/
+        return null;
     }
 
     @Override
@@ -135,6 +138,11 @@ public class PlatformClient implements ClientDetails {
     }
 
     private Set<String> _tokenizeStringAttribute(String tokenStr) {
+
+        if(StringUtils.isEmpty(tokenStr)) {
+            return null;
+        }
+
         Set<String> result = new HashSet<>();
         StringTokenizer st = new StringTokenizer(tokenStr, ",");
         while(st.hasMoreElements()) {

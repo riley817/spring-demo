@@ -8,9 +8,19 @@ spring:
 spring:
   profiles: default
 
+# Resource Server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:tlor.pem
+
+
 # Embedded server Setting
 server:
   port: 9090
+
+
 
 ---
 spring:
@@ -19,3 +29,18 @@ spring:
 # Embedded server Setting
 server:
   port: 9090
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5UbK2MtLe50V4bISdD2u
+          wxqUBOh+W1UAPPcoa3e/ztO/LGlGchOsC6L9AxKQGmG0sr7hOjvlM+Q7Hdbt33ol
+          XGwUMuSWxIM5igiNk9GCbkUf2/06CF922QgjG7yUDfNwjXCDceEv4ZeSojYc65Kp
+          sH/u24WLc5ow5SJ4QZUQiuf3rQi2sez+84ptlRSqOvw2LiQs5tPyJUayzId709Gv
+          k/eBkPm7I3Rbd6x9PUuB4W6Y+iKPIhi9YT/5wRjmPIsu8o70Bj9YUjgBJvMDeGpU
+          zyCVQTnsa+jK9NNNNLzBkpgtIF7+YUoCihctEta8/AqfOeSDz+p4JYlzFAC2HSqP
+          AwIDAQAB
+          -----END PUBLIC KEY-----

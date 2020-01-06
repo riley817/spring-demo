@@ -24,7 +24,7 @@ public class RestApiController extends BaseController {
     @Autowired
     private MemberService memberService;
 
-    @RequestMapping(value = "/members", method = RequestMethod.GET)
+    @RequestMapping(value = "/private/members", method = RequestMethod.GET)
     public ResponseEntity<CommonRes> list(HttpServletRequest request) {
         CommonRes res = _callService(request, () -> memberService.findMembers());
         return new ResponseEntity<>(res, res.getStatus());

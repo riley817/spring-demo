@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,7 @@ public class OAuthClientDetailsRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     public ClientDetails getOAuthClient(String clientId) {
 
         String sql = "SELECT * FROM oauth_client_details WHERE client_id = :clientId";
