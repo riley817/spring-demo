@@ -1,17 +1,13 @@
-# Common
-spring:
-  profiles:
-    include:
-      - domain
-      - api
-    active: default
 ---
 spring:
   profiles: default
+  mvc:
+    static-path-pattern: /resources/**
 
 # Embedded server Setting
 server:
   port: 9091
+
 
 ---
 spring:

@@ -23,12 +23,12 @@ subprojects {
 
 	group = "io.spring.demo"
 	version = "0.0.1-SNAPSHOT"
-	java.sourceCompatibility = JavaVersion.VERSION_11
+	java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 	dependencies {
 
 		implementation("org.springframework.boot:spring-boot-starter")
-		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		//implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
 		// Lombok
 		annotationProcessor ("org.projectlombok:lombok:1.18.4")
@@ -56,7 +56,7 @@ subprojects {
 	tasks.withType<KotlinCompile> {
 		kotlinOptions {
 			freeCompilerArgs = listOf("-Xjsr305=strict")
-			jvmTarget = "1.11"
+			jvmTarget = "1.8"
 		}
 	}
 }
@@ -90,8 +90,8 @@ project("module-api") {
 project("client-web") {
 
 	dependencies {
-		implementation(project(":module-domain"))
-		implementation(project(":module-api"))
+		// implementation(project(":module-domain"))
+		// implementation(project(":module-api"))
 		implementation("pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0")
 	}
 }
